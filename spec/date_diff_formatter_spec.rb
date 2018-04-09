@@ -39,5 +39,17 @@ RSpec.describe DateDiffFormatter do
       end
     end
 
+    context "When any of the parameters is an invalid date" do
+       it "returns nil when first parameter is invalid" do
+          difference = DateDiffFormatter.format("", "2018-04-08 10:06:15")
+          expect(difference).to be nil
+       end
+
+       it "returns nil when second parameter is invalid date" do
+          difference = DateDiffFormatter.format("2018-04-08 10:06:10", "")
+          expect(difference).to be nil
+       end
+    end
+
   end
 end
